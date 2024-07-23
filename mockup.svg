@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="7.1811697"
-     inkscape:cx="841.78488"
-     inkscape:cy="374.59079"
+     inkscape:zoom="5.5348931"
+     inkscape:cx="862.34728"
+     inkscape:cy="373.26828"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
      inkscape:window-x="0"
@@ -171,52 +171,41 @@
        height="3.0821373"
        x="154.30096"
        y="34.766197" />
-    <g
-       id="g16"
-       transform="translate(0.24196823)"
-       inkscape:export-filename="crosshair.png"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
-      <rect
-         style="fill:#0070ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-         id="rect15"
-         width="0.73986328"
-         height="2.1825137"
-         x="-224.88423"
-         y="-96.843735"
-         ry="0"
-         transform="scale(-1)" />
-      <rect
-         style="fill:#0070ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-         id="rect16"
-         width="0.73986328"
-         height="2.1825137"
-         x="-224.88423"
-         y="-100.97401"
-         ry="0"
-         transform="scale(-1)" />
-    </g>
-    <g
-       id="g18"
-       transform="rotate(90,224.63528,97.938598)">
-      <rect
-         style="fill:#0070ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-         id="rect17"
-         width="0.73986328"
-         height="2.1825137"
-         x="-224.88423"
-         y="-96.843735"
-         ry="0"
-         transform="scale(-1)" />
-      <rect
-         style="fill:#0070ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-         id="rect18"
-         width="0.73986328"
-         height="2.1825137"
-         x="-224.88423"
-         y="-100.97401"
-         ry="0"
-         transform="scale(-1)" />
-    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect15"
+       width="0.73986328"
+       height="2.1825137"
+       x="-225.12621"
+       y="-96.843735"
+       ry="0"
+       transform="scale(-1)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect16"
+       width="0.73986328"
+       height="2.1825137"
+       x="-225.12621"
+       y="-100.97401"
+       ry="0"
+       transform="scale(-1)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17"
+       width="0.73986328"
+       height="2.1825137"
+       x="-98.187546"
+       y="225.73015"
+       ry="0"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect18"
+       width="0.73986328"
+       height="2.1825137"
+       x="-98.187546"
+       y="221.59987"
+       ry="0"
+       transform="rotate(-90)" />
   </g>
 </svg>

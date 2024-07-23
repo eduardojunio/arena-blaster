@@ -2,7 +2,7 @@ extends Sprite2D
 
 var PlayerBullet = preload("res://player-bullet.tscn")
 
-var speed = 300 # in pixels per second
+var speed = 400 # in pixels per second
 var shooting = false
 
 func _unhandled_input(event):
