@@ -6,3 +6,7 @@
 [node name="Player" type="Sprite2D"]
 texture = ExtResource("1_7606w")
 script = ExtResource("2_djfmq")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true
