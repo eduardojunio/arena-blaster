@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvj1gwsb4lmq3"]
+[gd_scene load_steps=6 format=3 uid="uid://cvj1gwsb4lmq3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_4pxf7"]
 [ext_resource type="Texture2D" uid="uid://cteyuc7r4ghro" path="res://assets/crosshair.png" id="2_kc16d"]
 [ext_resource type="PackedScene" uid="uid://b8bcogac67an8" path="res://scenes/player.tscn" id="3_ry26l"]
+[ext_resource type="PackedScene" uid="uid://b24x0i54v32in" path="res://scenes/enemy-shooter.tscn" id="4_018i8"]
 [ext_resource type="PackedScene" uid="uid://c2rmel2ipu682" path="res://scenes/enemy-basic.tscn" id="4_28nub"]
 
 [node name="root" type="Node2D"]
@@ -11,8 +12,12 @@ crosshair_texture = ExtResource("2_kc16d")
 crosshair_size = Vector2(25, 25)
 
 [node name="Player" parent="." instance=ExtResource("3_ry26l")]
-position = Vector2(176, 246)
+position = Vector2(232, 175)
+
+[node name="EnemyShooter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_018i8")]
+position = Vector2(1030, 381)
+player = NodePath("../Player")
 
 [node name="EnemyBasic" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_28nub")]
-position = Vector2(1230, 370)
+position = Vector2(83, 682)
 player = NodePath("../Player")

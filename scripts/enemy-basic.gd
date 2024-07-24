@@ -1,23 +1,27 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var player: Node2D
-@export var speed = 150
+@export var speed = 125
 
 func _ready():
-	rotation = get_direction().angle()
+	rotation = get_player_direction().angle()
 
-func _process(delta):
-	move(delta)
+func _physics_process(delta):
+	velocity = get_player_direction() * speed
+	rotation = lerp_angle(rotation, get_player_direction().angle(), 0.1)
+	if get_player_distance() > 100:
+		move_and_slide()
 
-func move(delta):
-	if get_distance() < 5:
-		return
-	var direction = get_direction()
-	global_position += direction * speed * delta
-	rotation = lerp_angle(rotation, direction.angle(), 0.1)
+# TODO: Duplication
+func get_player_direction():
+	return get_direction(player.get_sprite_position())
 
-func get_direction():
-	return (player.get_sprite_position() - global_position).normalized()
+func get_player_distance():
+	return get_distance(player.get_sprite_position())
 
-func get_distance():
-	return global_position.distance_to(player.get_sprite_position())
+# TODO: Duplication
+func get_direction(target_position):
+	return (target_position - global_position).normalized()
+
+func get_distance(target_position):
+	return global_position.distance_to(target_position)
