@@ -1,31 +1,18 @@
-extends CharacterBody2D
+extends EnemyBasic
 
-@export var player: Node2D
 @export var bullet: PackedScene
-@export var speed = 75 # in pixels per second
 @export var bullet_speed = 750
 
 @onready var cooldown: Timer = $Cooldown
 @onready var sprite: Sprite2D = $Sprite2D
 
-func _ready():
-	rotation = get_direction_to_player().angle()
-
 func _physics_process(delta):
+	super(delta)
 	shoot()
-	velocity = get_direction_to_player() * speed
-	rotation = lerp_angle(rotation, get_direction_to_player().angle(), 0.05)
-	if global_position.distance_to(player.global_position) < 100:
-		return
-	move_and_slide()
 
-func get_direction_to_player():
-	return get_direction(player.global_position)
+func get_size():
+	return sprite.get_rect().size
 
-func get_direction(target_position):
-	return (target_position - global_position).normalized()
-
-# TODO: Duplication
 func shoot():
 	if not cooldown.is_stopped():
 		return
@@ -43,6 +30,3 @@ func shoot():
 	bullet_instance.global_position = global_position + sprite_offset + bullet_size_offset + extra_offset
 
 	cooldown.start()
-
-func get_size():
-	return sprite.get_rect().size
