@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvj1gwsb4lmq3"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_4pxf7"]
+[ext_resource type="Texture2D" uid="uid://cteyuc7r4ghro" path="res://assets/crosshair.png" id="2_kc16d"]
+[ext_resource type="PackedScene" uid="uid://b8bcogac67an8" path="res://scenes/player.tscn" id="3_ry26l"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_4pxf7")
+crosshair_texture = ExtResource("2_kc16d")
+crosshair_size = Vector2(25, 25)
+
+[node name="Player" parent="." instance=ExtResource("3_ry26l")]
+position = Vector2(648, 348)
