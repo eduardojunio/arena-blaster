@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var speed = 1500 # in pixels per second
+var speed = 0 # in pixels per second
 var direction = Vector2.ZERO # Direction the bullet will travel
 
 func _process(delta):
@@ -14,6 +14,5 @@ func is_out_of_screen():
 func get_global_rect():
 	return Rect2(global_position - (get_size() / 2), get_size())
 
-# TODO: Duplicated from player script
 func get_size():
 	return get_rect().size
