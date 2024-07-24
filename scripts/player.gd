@@ -58,6 +58,9 @@ func get_motion():
 func get_sprite_size():
 	return sprite.get_rect().size
 
+func get_sprite_position():
+	return sprite.global_position
+
 func get_viewport_size():
 	return get_viewport().get_visible_rect().size
 
