@@ -1,4 +1,4 @@
-extends EnemyBasic
+class_name EnemyShooter extends Enemy
 
 @export var bullet: PackedScene
 @export var bullet_speed = 750
@@ -6,8 +6,7 @@ extends EnemyBasic
 @onready var cooldown: Timer = $Cooldown
 @onready var sprite: Sprite2D = $Sprite2D
 
-func _physics_process(delta):
-	super(delta)
+func _physics_process(_delta):
 	shoot()
 
 func get_size():

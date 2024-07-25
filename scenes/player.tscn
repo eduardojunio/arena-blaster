@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8bcogac67an8"]
+[gd_scene load_steps=9 format=3 uid="uid://b8bcogac67an8"]
 
 [ext_resource type="Texture2D" uid="uid://33g70ecclapi" path="res://assets/player.png" id="1_7606w"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_djfmq"]
 [ext_resource type="PackedScene" uid="uid://cayh8q3yk3y3p" path="res://scenes/player-bullet.tscn" id="2_uclsc"]
 [ext_resource type="PackedScene" uid="uid://cqmuvlatit7rk" path="res://scenes/health-bar.tscn" id="3_b61oy"]
+[ext_resource type="PackedScene" uid="uid://c4a22l35bejti" path="res://scenes/components/player-input-component.tscn" id="5_wqatv"]
+[ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="6_2gwt7"]
+[ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="7_yrpum"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("health_bar", "sprite", "cooldown")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlg8r"]
+radius = 31.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "sprite", "cooldown")]
 script = ExtResource("2_djfmq")
 health_bar = NodePath("HealthBar")
 sprite = NodePath("Sprite")
@@ -26,3 +32,18 @@ texture = ExtResource("1_7606w")
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.125
 one_shot = true
+
+[node name="PlayerInputComponent" parent="." instance=ExtResource("5_wqatv")]
+
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("6_2gwt7")]
+target = NodePath("..")
+input_component = NodePath("../PlayerInputComponent")
+speed = 400
+target_size = Vector2(62, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vlg8r")
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("7_yrpum")]
+target = NodePath("../Sprite")
+input_component = NodePath("../PlayerInputComponent")

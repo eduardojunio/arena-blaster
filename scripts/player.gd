@@ -1,10 +1,9 @@
-extends Node2D
+class_name Player extends Node2D
 
 @export var health_bar: ProgressBar
 @export var sprite: Sprite2D
 @export var cooldown: Timer
 @export var bullet: PackedScene
-@export var speed = 400 # in pixels per second
 @export var bullet_speed = 1500 # in pixels per second
 @export var max_health = 300
 @export var current_health = 300
@@ -15,13 +14,10 @@ func _ready():
 	update_health_bar()
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		rotate_sprite(event.position)
 	if event is InputEventMouseButton:
 		shooting = event.pressed
 
 func _process(delta):
-	move(delta)
 	if shooting:
 		shoot(get_global_mouse_position())
 
@@ -33,39 +29,11 @@ func take_damage(value):
 	current_health = max(current_health - value, 0)
 	update_health_bar()
 
-func move(delta):
-	position += get_motion() * speed * delta
-	clamp_position()
-	rotate_sprite(get_global_mouse_position())
-
-func clamp_position():
-	var min_position = get_sprite_size() / 2
-	var max_position = get_viewport_size() - (get_sprite_size() / 2)
-	position = position.clamp(min_position, max_position)
-
-func get_motion():
-	var result = Vector2.ZERO
-	if Input.is_action_pressed("up"):
-		result.y -= 1
-	if Input.is_action_pressed("down"):
-		result.y += 1
-	if Input.is_action_pressed("left"):
-		result.x -= 1
-	if Input.is_action_pressed("right"):
-		result.x += 1
-	return result.normalized()
-
 func get_sprite_size():
 	return sprite.get_rect().size
 
 func get_sprite_position():
 	return sprite.global_position
-
-func get_viewport_size():
-	return get_viewport().get_visible_rect().size
-
-func rotate_sprite(target_position):
-	sprite.rotation = get_direction_rotation(get_sprite_direction(target_position))
 
 func shoot(target_position):
 	if not cooldown.is_stopped():

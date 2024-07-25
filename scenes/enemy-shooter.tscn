@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b24x0i54v32in"]
+[gd_scene load_steps=7 format=3 uid="uid://b24x0i54v32in"]
 
 [ext_resource type="Texture2D" uid="uid://nhfpntfpvdc3" path="res://assets/enemy-shooter.png" id="1_w1lew"]
 [ext_resource type="Script" path="res://scripts/enemy-shooter.gd" id="1_wt6qd"]
 [ext_resource type="PackedScene" uid="uid://bd5hqo2qjad2i" path="res://scenes/enemy-shooter-bullet.tscn" id="2_1d5b1"]
+[ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="4_a3efj"]
+[ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="5_wn4ab"]
+[ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="6_hg4rb"]
 
 [node name="EnemyShooter" type="CharacterBody2D"]
 script = ExtResource("1_wt6qd")
@@ -18,3 +21,18 @@ polygon = PackedVector2Array(-18, -40, 34, -10, -18, 20)
 
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("4_a3efj")]
+target = NodePath("..")
+input_component = NodePath("../EnemyInputComponent")
+speed = 75
+target_size = Vector2(52, 60)
+stop_on_collision = true
+
+[node name="EnemyInputComponent" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("5_wn4ab")]
+enemy = NodePath("..")
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("6_hg4rb")]
+target = NodePath("..")
+input_component = NodePath("../EnemyInputComponent")
+smooth = true
