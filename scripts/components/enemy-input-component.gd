@@ -7,3 +7,6 @@ func get_direction():
 
 func get_look_target():
 	return enemy.player.get_sprite_position()
+
+func is_shooting():
+	return true

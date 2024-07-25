@@ -5,3 +5,6 @@ func get_direction():
 
 func get_look_target():
 	return get_global_mouse_position()
+
+func is_shooting():
+	return Input.is_action_pressed("shoot")

@@ -5,3 +5,6 @@ func get_direction():
 
 func get_look_target():
 	return Vector2.ZERO
+
+func is_shooting():
+	return false
