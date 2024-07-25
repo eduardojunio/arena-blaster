@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b24x0i54v32in"]
+[gd_scene load_steps=9 format=3 uid="uid://b24x0i54v32in"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_g0csa"]
 [ext_resource type="Texture2D" uid="uid://nhfpntfpvdc3" path="res://assets/enemy-shooter.png" id="1_w1lew"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="5_wn4ab"]
 [ext_resource type="PackedScene" uid="uid://fnfal0bsc3w5" path="res://scenes/components/shoot-component.tscn" id="6_02jas"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="6_hg4rb"]
+[ext_resource type="PackedScene" uid="uid://dtutrbhh0xifp" path="res://scenes/components/health-component.tscn" id="8_f5hhm"]
 
 [node name="EnemyShooter" type="CharacterBody2D"]
 script = ExtResource("1_g0csa")
@@ -40,3 +41,9 @@ input_component = NodePath("../EnemyInputComponent")
 cooldown_time = 0.25
 bullet = ExtResource("2_1d5b1")
 bullet_speed = 750
+
+[node name="HealthComponent" parent="." instance=ExtResource("8_f5hhm")]
+max_health = 30
+current_health = 30
+
+[connection signal="on_damage" from="HealthComponent" to="." method="_on_damage"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2rmel2ipu682"]
+[gd_scene load_steps=8 format=3 uid="uid://c2rmel2ipu682"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_knoj7"]
 [ext_resource type="Texture2D" uid="uid://b83udchouvsh0" path="res://assets/enemy-basic.png" id="2_cq1rp"]
 [ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="3_hjwib"]
 [ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="3_nwedh"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="4_52yuc"]
+[ext_resource type="PackedScene" uid="uid://dtutrbhh0xifp" path="res://scenes/components/health-component.tscn" id="6_2oxf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx32u"]
 size = Vector2(46, 46)
@@ -33,3 +34,9 @@ stop_on_collision = true
 target = NodePath("..")
 input_component = NodePath("../EnemyInputComponent")
 smooth = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_2oxf0")]
+max_health = 50
+current_health = 50
+
+[connection signal="on_damage" from="HealthComponent" to="." method="_on_damage"]

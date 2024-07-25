@@ -16,3 +16,5 @@ func get_sprite_position():
 
 func _on_damage(damage, current_health):
 	update_health_bar()
+	if current_health == 0:
+		hide()
