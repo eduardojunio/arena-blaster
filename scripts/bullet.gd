@@ -12,7 +12,7 @@ func _physics_process(delta):
 	if has_overlapping_bodies():
 		for body in get_overlapping_bodies():
 			if body.has_node("HealthComponent"):
-				var health_component = body.get_node("HealthComponent")
+				var health_component: HealthComponent = body.get_node("HealthComponent")
 				health_component.take_damage(damage)
 	if is_out_of_screen() or has_overlapping_bodies():
 		queue_free()
