@@ -8,7 +8,7 @@ func _ready():
 	target.rotation = get_direction().angle()
 
 func _process(delta):
-	target.rotation = lerp_angle(target.rotation, get_direction().angle(), 0.05 if smooth else 1)
+	target.rotation = lerp_angle(target.rotation, get_direction().angle(), 0.1 if smooth else 1)
 
 func get_direction():
 	return input_component.get_look_target() - target.global_position
