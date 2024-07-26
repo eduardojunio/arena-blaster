@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbt2qcvqvyff8"]
+
+[ext_resource type="Script" path="res://scripts/components/flashing-component.gd" id="1_2cgno"]
+
+[node name="FlashingComponent" type="Node2D"]
+script = ExtResource("1_2cgno")
+metadata/_edit_group_ = true
+
+[node name="FlashingDuration" type="Timer" parent="."]
+
+[node name="FlashingInterval" type="Timer" parent="."]

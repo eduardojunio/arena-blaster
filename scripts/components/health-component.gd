@@ -8,3 +8,6 @@ signal on_damage(damage, current_health)
 func take_damage(value):
 	current_health = max(current_health - value, 0)
 	on_damage.emit(value, current_health)
+
+func die():
+	take_damage(current_health)

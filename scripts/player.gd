@@ -1,10 +1,11 @@
 class_name Player extends Node2D
 
-@export var sprite: Sprite2D
-@export var health_bar: ProgressBar
-@export var health_component: HealthComponent
+@onready var health_bar = $HealthBar
+@onready var health_component = $HealthComponent
+@onready var sprite = $Sprite
 
 func _ready():
+	health_component.on_damage.connect(_on_damage)
 	update_health_bar()
 
 func update_health_bar():

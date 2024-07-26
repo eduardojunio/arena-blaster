@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2rmel2ipu682"]
+[gd_scene load_steps=9 format=3 uid="uid://c2rmel2ipu682"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_knoj7"]
 [ext_resource type="Texture2D" uid="uid://b83udchouvsh0" path="res://assets/enemy-basic.png" id="2_cq1rp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="3_nwedh"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="4_52yuc"]
 [ext_resource type="PackedScene" uid="uid://dtutrbhh0xifp" path="res://scenes/components/health-component.tscn" id="6_2oxf0"]
+[ext_resource type="PackedScene" uid="uid://dbt2qcvqvyff8" path="res://scenes/components/flashing-component.tscn" id="7_kx25e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx32u"]
 size = Vector2(46, 46)
@@ -39,4 +40,5 @@ smooth = true
 max_health = 50
 current_health = 50
 
-[connection signal="on_damage" from="HealthComponent" to="." method="_on_damage"]
+[node name="FlashingComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_kx25e")]
+target = NodePath("../Sprite")

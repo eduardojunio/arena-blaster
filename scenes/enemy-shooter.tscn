@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b24x0i54v32in"]
+[gd_scene load_steps=10 format=3 uid="uid://b24x0i54v32in"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_g0csa"]
 [ext_resource type="Texture2D" uid="uid://nhfpntfpvdc3" path="res://assets/enemy-shooter.png" id="1_w1lew"]
@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://fnfal0bsc3w5" path="res://scenes/components/shoot-component.tscn" id="6_02jas"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="6_hg4rb"]
 [ext_resource type="PackedScene" uid="uid://dtutrbhh0xifp" path="res://scenes/components/health-component.tscn" id="8_f5hhm"]
+[ext_resource type="PackedScene" uid="uid://dbt2qcvqvyff8" path="res://scenes/components/flashing-component.tscn" id="9_vb14y"]
 
 [node name="EnemyShooter" type="CharacterBody2D"]
 script = ExtResource("1_g0csa")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_w1lew")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -30,13 +31,8 @@ stop_on_collision = true
 [node name="EnemyInputComponent" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("5_wn4ab")]
 enemy = NodePath("..")
 
-[node name="RotationComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("6_hg4rb")]
-target = NodePath("..")
-input_component = NodePath("../EnemyInputComponent")
-smooth = true
-
 [node name="ShootComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("6_02jas")]
-target = NodePath("../Sprite2D")
+target = NodePath("../Sprite")
 input_component = NodePath("../EnemyInputComponent")
 cooldown_time = 0.25
 bullet = ExtResource("2_1d5b1")
@@ -46,4 +42,10 @@ bullet_speed = 750
 max_health = 30
 current_health = 30
 
-[connection signal="on_damage" from="HealthComponent" to="." method="_on_damage"]
+[node name="FlashingComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_vb14y")]
+target = NodePath("../Sprite")
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("target", "input_component") instance=ExtResource("6_hg4rb")]
+target = NodePath("..")
+input_component = NodePath("../EnemyInputComponent")
+smooth = true

@@ -13,11 +13,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlg8r"]
 radius = 31.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "health_bar", "health_component")]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("2_djfmq")
-sprite = NodePath("Sprite")
-health_bar = NodePath("HealthBar")
-health_component = NodePath("HealthComponent")
 metadata/_edit_group_ = true
 
 [node name="HealthBar" parent="." instance=ExtResource("3_b61oy")]
@@ -51,5 +48,3 @@ input_component = NodePath("../PlayerInputComponent")
 bullet = ExtResource("2_uclsc")
 
 [node name="HealthComponent" parent="." instance=ExtResource("9_uf05b")]
-
-[connection signal="on_damage" from="HealthComponent" to="." method="_on_damage"]

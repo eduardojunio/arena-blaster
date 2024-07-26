@@ -14,10 +14,10 @@ crosshair_size = Vector2(25, 25)
 [node name="Player" parent="." instance=ExtResource("3_ry26l")]
 position = Vector2(100, 95)
 
-[node name="EnemyShooter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_018i8")]
-position = Vector2(1224, 52)
+[node name="EnemyBasic" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_28nub")]
+position = Vector2(101, 610)
 player = NodePath("../Player")
 
-[node name="EnemyBasic" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_28nub")]
-position = Vector2(69, 657)
+[node name="EnemyShooter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_018i8")]
+position = Vector2(1195, 622)
 player = NodePath("../Player")
