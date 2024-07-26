@@ -1,23 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvj1gwsb4lmq3"]
+[gd_scene load_steps=7 format=3 uid="uid://cvj1gwsb4lmq3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_4pxf7"]
 [ext_resource type="Texture2D" uid="uid://cteyuc7r4ghro" path="res://assets/crosshair.png" id="2_kc16d"]
 [ext_resource type="PackedScene" uid="uid://b8bcogac67an8" path="res://scenes/player.tscn" id="3_ry26l"]
-[ext_resource type="PackedScene" uid="uid://b24x0i54v32in" path="res://scenes/enemy-shooter.tscn" id="4_018i8"]
 [ext_resource type="PackedScene" uid="uid://c2rmel2ipu682" path="res://scenes/enemy-basic.tscn" id="4_28nub"]
+[ext_resource type="PackedScene" uid="uid://b24x0i54v32in" path="res://scenes/enemy-shooter.tscn" id="4_wwrku"]
 
-[node name="root" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_lli2v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -128, -128, 0, 0, 0, 0, 1408, -128, 0, 0, 0, 0, 1408, 832, 0, 0, 0, 0, -128, 832, 0, 0, 0, 0, -128, -128)
+}
+point_count = 5
+
+[node name="Main" type="Node2D"]
 script = ExtResource("1_4pxf7")
 crosshair_texture = ExtResource("2_kc16d")
 crosshair_size = Vector2(25, 25)
+enemy_basic = ExtResource("4_28nub")
+enemy_shooter = ExtResource("4_wwrku")
 
 [node name="Player" parent="." instance=ExtResource("3_ry26l")]
-position = Vector2(100, 95)
+position = Vector2(635, 344)
 
-[node name="EnemyBasic" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_28nub")]
-position = Vector2(101, 610)
-player = NodePath("../Player")
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_lli2v")
 
-[node name="EnemyShooter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_018i8")]
-position = Vector2(1195, 622)
-player = NodePath("../Player")
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-128, -128)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

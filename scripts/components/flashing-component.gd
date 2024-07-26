@@ -7,9 +7,9 @@ class_name FlashingComponent extends Node2D
 
 func _ready():
 	flashing_duration.one_shot = true
-	flashing_duration.wait_time = 0.7
+	flashing_duration.wait_time = 0.5
 	flashing_duration.timeout.connect(stop_flashing)
-	flashing_interval.wait_time = 0.15
+	flashing_interval.wait_time = 0.075
 	flashing_interval.timeout.connect(flash)
 
 func start_flashing():

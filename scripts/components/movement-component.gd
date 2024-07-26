@@ -7,6 +7,7 @@ signal on_collision(collision)
 @export var speed = 100 # in pixels per second
 @export var target_size: Vector2 # required to prevent the target from leaving the screen
 @export var stop_on_collision = false
+@export var should_clamp_position = false
 
 var collided = false
 
@@ -16,7 +17,8 @@ func _process(_delta):
 		collided = target.move_and_slide()
 		if collided:
 			on_collision.emit(target.get_last_slide_collision())
-		clamp_position()
+		if should_clamp_position:
+			clamp_position()
 
 func clamp_position():
 	var min_position = target_size / 2

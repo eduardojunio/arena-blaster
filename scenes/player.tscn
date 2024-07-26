@@ -34,6 +34,7 @@ target = NodePath("..")
 input_component = NodePath("../PlayerInputComponent")
 speed = 400
 target_size = Vector2(62, 62)
+should_clamp_position = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vlg8r")
@@ -48,3 +49,5 @@ input_component = NodePath("../PlayerInputComponent")
 bullet = ExtResource("2_uclsc")
 
 [node name="HealthComponent" parent="." instance=ExtResource("9_uf05b")]
+max_health = 300
+current_health = 300
