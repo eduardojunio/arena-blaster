@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2rmel2ipu682"]
+[gd_scene load_steps=10 format=3 uid="uid://c2rmel2ipu682"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_knoj7"]
 [ext_resource type="Texture2D" uid="uid://b83udchouvsh0" path="res://assets/enemy-basic.png" id="2_cq1rp"]
+[ext_resource type="PackedScene" uid="uid://dk4syul3ex4ek" path="res://scenes/health-pack.tscn" id="2_lpvef"]
 [ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="3_hjwib"]
 [ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="3_nwedh"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="4_52yuc"]
@@ -13,6 +14,9 @@ size = Vector2(46, 46)
 
 [node name="EnemyBasic" type="CharacterBody2D"]
 script = ExtResource("1_knoj7")
+health_pack = ExtResource("2_lpvef")
+health_pack_chance = 10
+health_pack_critical_chance = 50
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk4syul3ex4ek"]
+
+[ext_resource type="Script" path="res://scripts/health-pack.gd" id="1_ermy4"]
+[ext_resource type="Texture2D" uid="uid://c84wmitr23oit" path="res://assets/health-pack.png" id="2_68aa8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pkfh"]
+size = Vector2(34, 34)
+
+[node name="HealthPack" type="Area2D"]
+script = ExtResource("1_ermy4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_68aa8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1pkfh")

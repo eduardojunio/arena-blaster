@@ -11,8 +11,8 @@ extends Node2D
 @onready var cooldown_timer = $CooldownTimer
 @onready var player = $Player
 
-var spawn_time_decrease = 0.25 # decrease in enemy spawn time in seconds (decreased after a wave)
-var min_spawn_time = 1 # in seconds
+var spawn_time_decrease = 0.5 # decrease in enemy spawn time in seconds (decreased after a wave)
+var min_spawn_time = 1.5 # in seconds
 
 func _ready():
 	set_crosshair()

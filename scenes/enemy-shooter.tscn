@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b24x0i54v32in"]
+[gd_scene load_steps=11 format=3 uid="uid://b24x0i54v32in"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_g0csa"]
 [ext_resource type="Texture2D" uid="uid://nhfpntfpvdc3" path="res://assets/enemy-shooter.png" id="1_w1lew"]
 [ext_resource type="PackedScene" uid="uid://bd5hqo2qjad2i" path="res://scenes/enemy-shooter-bullet.tscn" id="2_1d5b1"]
+[ext_resource type="PackedScene" uid="uid://dk4syul3ex4ek" path="res://scenes/health-pack.tscn" id="2_3lxaj"]
 [ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="4_a3efj"]
 [ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="5_wn4ab"]
 [ext_resource type="PackedScene" uid="uid://fnfal0bsc3w5" path="res://scenes/components/shoot-component.tscn" id="6_02jas"]
@@ -12,6 +13,9 @@
 
 [node name="EnemyShooter" type="CharacterBody2D"]
 script = ExtResource("1_g0csa")
+health_pack = ExtResource("2_3lxaj")
+health_pack_chance = 20
+health_pack_critical_chance = 80
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
