@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvj1gwsb4lmq3"]
+[gd_scene load_steps=8 format=3 uid="uid://cvj1gwsb4lmq3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_4pxf7"]
 [ext_resource type="Texture2D" uid="uid://cteyuc7r4ghro" path="res://assets/crosshair.png" id="2_kc16d"]
 [ext_resource type="PackedScene" uid="uid://b8bcogac67an8" path="res://scenes/player.tscn" id="3_ry26l"]
 [ext_resource type="PackedScene" uid="uid://c2rmel2ipu682" path="res://scenes/enemy-basic.tscn" id="4_28nub"]
 [ext_resource type="PackedScene" uid="uid://b24x0i54v32in" path="res://scenes/enemy-shooter.tscn" id="4_wwrku"]
+[ext_resource type="PackedScene" uid="uid://cndx8mvtecvps" path="res://scenes/shield.tscn" id="6_kdxox"]
 
 [sub_resource type="Curve2D" id="Curve2D_lli2v"]
 _data = {
@@ -40,3 +41,9 @@ autostart = true
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="Shield" parent="." instance=ExtResource("6_kdxox")]
+position = Vector2(427, 336)
+
+[node name="Shield2" parent="." instance=ExtResource("6_kdxox")]
+position = Vector2(833, 336)

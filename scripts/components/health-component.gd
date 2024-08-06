@@ -4,11 +4,14 @@ signal on_health_change(value, current_health)
 
 @export var max_health = 100
 @export var current_health = 100
+@export var can_take_damage = true
 
 func _ready():
 	assert(current_health <= max_health)
 
 func take_damage(value):
+	if not can_take_damage:
+		return
 	current_health = max(current_health - value, 0)
 	on_health_change.emit(-value, current_health)
 

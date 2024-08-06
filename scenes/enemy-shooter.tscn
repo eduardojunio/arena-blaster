@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b24x0i54v32in"]
+[gd_scene load_steps=13 format=3 uid="uid://b24x0i54v32in"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_g0csa"]
 [ext_resource type="Texture2D" uid="uid://nhfpntfpvdc3" path="res://assets/enemy-shooter.png" id="1_w1lew"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk4syul3ex4ek" path="res://scenes/health-pack.tscn" id="2_3lxaj"]
 [ext_resource type="PackedScene" uid="uid://co6n4br0odgim" path="res://scenes/speed-boost.tscn" id="3_y8g4h"]
 [ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="4_a3efj"]
+[ext_resource type="PackedScene" uid="uid://cndx8mvtecvps" path="res://scenes/shield.tscn" id="4_teu6h"]
 [ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="5_wn4ab"]
 [ext_resource type="PackedScene" uid="uid://fnfal0bsc3w5" path="res://scenes/components/shoot-component.tscn" id="6_02jas"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="6_hg4rb"]
@@ -19,6 +20,8 @@ health_pack_chance = 20
 health_pack_critical_chance = 80
 speed_boost = ExtResource("3_y8g4h")
 speed_boost_chance = 40
+shield = ExtResource("4_teu6h")
+shield_chance = 40
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]

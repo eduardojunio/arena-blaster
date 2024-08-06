@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cndx8mvtecvps"]
+
+[ext_resource type="Texture2D" uid="uid://dhtx7wj73lp5t" path="res://assets/shield.png" id="1_ehddj"]
+[ext_resource type="Script" path="res://scripts/shield.gd" id="1_tw2o3"]
+[ext_resource type="Texture2D" uid="uid://ccqvfc6ov0pe6" path="res://assets/shield-effect.png" id="2_f14a1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmcrs"]
+size = Vector2(34, 34)
+
+[node name="Shield" type="Area2D"]
+z_index = -1
+script = ExtResource("1_tw2o3")
+metadata/_edit_group_ = true
+
+[node name="Pickup" type="Sprite2D" parent="."]
+texture = ExtResource("1_ehddj")
+
+[node name="Effect" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_f14a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pmcrs")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

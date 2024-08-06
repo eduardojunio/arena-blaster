@@ -3,6 +3,7 @@ class_name Player extends Node2D
 @onready var health_bar = $HealthBar
 @onready var health_component = $HealthComponent
 @onready var sprite = $Sprite
+@onready var remote_transform_2d = $RemoteTransform2D
 
 func _ready():
 	health_component.on_health_change.connect(_on_health_change)

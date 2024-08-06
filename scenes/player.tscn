@@ -18,6 +18,7 @@ script = ExtResource("2_djfmq")
 metadata/_edit_group_ = true
 
 [node name="HealthBar" parent="." instance=ExtResource("3_b61oy")]
+z_index = 1
 offset_left = -29.0
 offset_top = -47.0
 offset_right = 29.0
@@ -51,3 +52,5 @@ bullet = ExtResource("2_uclsc")
 [node name="HealthComponent" parent="." instance=ExtResource("9_uf05b")]
 max_health = 300
 current_health = 300
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
