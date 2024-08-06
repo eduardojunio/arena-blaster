@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2rmel2ipu682"]
+[gd_scene load_steps=12 format=3 uid="uid://c2rmel2ipu682"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_knoj7"]
 [ext_resource type="Texture2D" uid="uid://b83udchouvsh0" path="res://assets/enemy-basic.png" id="2_cq1rp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6sdx62e3wfi" path="res://scenes/components/enemy-input-component.tscn" id="3_hjwib"]
 [ext_resource type="PackedScene" uid="uid://rnwrnv8h0am4" path="res://scenes/components/movement-component.tscn" id="3_nwedh"]
 [ext_resource type="PackedScene" uid="uid://b7170ru2o1iyl" path="res://scenes/components/rotation-component.tscn" id="4_52yuc"]
+[ext_resource type="PackedScene" uid="uid://cndx8mvtecvps" path="res://scenes/shield.tscn" id="4_v1ite"]
 [ext_resource type="PackedScene" uid="uid://dtutrbhh0xifp" path="res://scenes/components/health-component.tscn" id="6_2oxf0"]
 [ext_resource type="PackedScene" uid="uid://dbt2qcvqvyff8" path="res://scenes/components/flashing-component.tscn" id="7_kx25e"]
 
@@ -20,6 +21,8 @@ health_pack_chance = 10
 health_pack_critical_chance = 50
 speed_boost = ExtResource("3_1fbm0")
 speed_boost_chance = 30
+shield = ExtResource("4_v1ite")
+shield_chance = 30
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
