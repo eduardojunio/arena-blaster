@@ -22,6 +22,7 @@ speed_boost = ExtResource("3_y8g4h")
 speed_boost_chance = 40
 shield = ExtResource("4_teu6h")
 shield_chance = 40
+score_increase = 200
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]

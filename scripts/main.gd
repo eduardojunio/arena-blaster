@@ -10,6 +10,7 @@ extends Node2D
 @onready var wave_timer = $WaveTimer
 @onready var cooldown_timer = $CooldownTimer
 @onready var player = $Player
+@onready var score = $Score
 
 var spawn_time_decrease = 0.5 # decrease in enemy spawn time in seconds (decreased after a wave)
 var min_spawn_time = 1.5 # in seconds
@@ -36,6 +37,7 @@ func spawn_enemy():
 	var enemy_instance = get_enemy().instantiate()
 	enemy_instance.player = player
 	enemy_instance.global_position = get_enemy_position()
+	enemy_instance.increase_score.connect(increase_core)
 	add_child(enemy_instance)
 
 func get_enemy_position():
@@ -45,3 +47,6 @@ func get_enemy_position():
 func get_enemy():
 	var enemies = [enemy_basic, enemy_shooter]
 	return enemies[randi() % enemies.size()]
+
+func increase_core(score_increase):
+	score.increase_score(score_increase)

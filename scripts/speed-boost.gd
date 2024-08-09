@@ -20,7 +20,7 @@ func increase_speed(body):
 		hide()
 
 func decrease_speed():
-	if boosted_body:
+	if boosted_body and is_instance_valid(boosted_body):
 		var movement_component = get_movement_component(boosted_body)
 		movement_component.speed -= speed_increase
 		queue_free()
