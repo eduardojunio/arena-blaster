@@ -1,5 +1,7 @@
 class_name Enemy extends Node2D
 
+signal increase_score(value)
+
 @export var player: Player
 @export var health_pack: PackedScene
 @export var health_pack_chance = 0 # in percentage
@@ -8,6 +10,7 @@ class_name Enemy extends Node2D
 @export var speed_boost_chance = 0 # in percentage
 @export var shield: PackedScene
 @export var shield_chance = 0 # in percentage
+@export var score_increase = 0
 
 @onready var health_component = $HealthComponent
 @onready var movement_component = $MovementComponent
@@ -25,6 +28,7 @@ func handle_health_change(value, current_health):
 			spawn(speed_boost)
 		elif roll(shield_chance):
 			spawn(shield)
+		increase_score.emit(score_increase)
 		queue_free()
 	elif has_node("FlashingComponent"):
 		$FlashingComponent.start_flashing()

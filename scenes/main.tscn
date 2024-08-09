@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvj1gwsb4lmq3"]
+[gd_scene load_steps=11 format=3 uid="uid://cvj1gwsb4lmq3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_4pxf7"]
 [ext_resource type="Texture2D" uid="uid://cteyuc7r4ghro" path="res://assets/crosshair.png" id="2_kc16d"]
@@ -6,12 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://c2rmel2ipu682" path="res://scenes/enemy-basic.tscn" id="4_28nub"]
 [ext_resource type="PackedScene" uid="uid://b24x0i54v32in" path="res://scenes/enemy-shooter.tscn" id="4_wwrku"]
 [ext_resource type="PackedScene" uid="uid://cndx8mvtecvps" path="res://scenes/shield.tscn" id="6_kdxox"]
+[ext_resource type="FontFile" uid="uid://cuaai5mdtksw4" path="res://assets/Roboto-Black.ttf" id="7_j34rq"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="8_65sd8"]
 
 [sub_resource type="Curve2D" id="Curve2D_lli2v"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -128, -128, 0, 0, 0, 0, 1408, -128, 0, 0, 0, 0, 1408, 832, 0, 0, 0, 0, -128, 832, 0, 0, 0, 0, -128, -128)
 }
 point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_pw4tu"]
+font = ExtResource("7_j34rq")
+font_size = 50
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4pxf7")
@@ -47,3 +53,13 @@ position = Vector2(427, 336)
 
 [node name="Shield2" parent="." instance=ExtResource("6_kdxox")]
 position = Vector2(833, 336)
+
+[node name="Score" type="Label" parent="."]
+z_index = 10
+offset_left = 58.0
+offset_top = 35.0
+offset_right = 218.0
+offset_bottom = 95.0
+text = "0"
+label_settings = SubResource("LabelSettings_pw4tu")
+script = ExtResource("8_65sd8")
